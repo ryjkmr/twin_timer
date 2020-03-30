@@ -12,11 +12,15 @@ const timer2Display = document.getElementById('timer2Disp');
 const startBtn = document.getElementById('start');
 startBtn.addEventListener('click', startTimer, false);
 const stopBtn = document.getElementById('stop');
-stopBtn.addEventListener('click', (event) => { clearInterval(timerId) });
+stopBtn.addEventListener('click', (event) => { 
+  clearInterval(timerId);
+  startBtn.disabled = "";
+ });
 
 let timerId;
 
 function startTimer() {
+  startBtn.disabled = "disabled";
   loop = document.getElementById('loop').value;
   timer1 = document.getElementById('timer1').value * 60;
   timer2 = document.getElementById('timer2').value * 60;
@@ -29,7 +33,7 @@ function startTimer() {
 function countDownTimer1() {
   timer1 -= 1;
   timer1Display.innerText = formatTime(timer1);
-  if (timer1 === 0) {
+  if (timer1 <= 0) {
     clearInterval(timerId);
     timerId = setInterval(countDownTimer2, INTERVAL);
   }
@@ -38,7 +42,7 @@ function countDownTimer1() {
 function countDownTimer2() {
   timer2 -= 1;
   timer2Display.innerText = formatTime(timer2);
-  if (timer2 === 0) {
+  if (timer2 <= 0) {
     clearInterval(timerId);
     countDownLoop();
   }
@@ -47,7 +51,7 @@ function countDownTimer2() {
 function countDownLoop() {
   loop -= 1;
   loopDisplay.innerText = loop;
-  if (loop === 0) {
+  if (loop <= 0) {
     loopDisplay.innerHTML = "<H1>ALL DONE!</H1>";
     clearInterval(timerId);
   } else {
