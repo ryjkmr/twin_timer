@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twin Timer</title>
+  <style type="text/css">
+    body {
+      font-size: larger;
+      line-height: 2;
+    }
+    input {
+      font-size: larger;
+    }
+  </style>
+</head>
+
+<body>
+  <p>2つのタイマーを順番にカウントダウン</p>
+  Loop :<input type="text" value="3" id="loop">
+  <div>rest:<span id="loopDisp"></span></div>
+  Timer1:<input type="text" value="25" id="timer1">
+  <div>rest:<span id="timer1Disp"></span></div>
+  Timer2:<input type="text" value="5" id="timer2">
+  <div>rest:<span id="timer2Disp"></span></div>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
