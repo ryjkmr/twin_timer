@@ -1,7 +1,7 @@
 'use strict';
 
 const INTERVAL = 10 //インターバル設定。本番では1000=1秒に設定
-let loop = document.getElementById('loop').value;
+let loop;//= document.getElementById('loop').value;
 let timer1;//= document.getElementById('timer1').value;
 let timer2;//= document.getElementById('timer2').value;
 
@@ -17,9 +17,11 @@ stopBtn.addEventListener('click', (event) => { clearInterval(timerId) });
 let timerId;
 
 function startTimer() {
+  loop = document.getElementById('loop').value;
   timer1 = document.getElementById('timer1').value * 60;
   timer2 = document.getElementById('timer2').value * 60;
   loopDisplay.innerText = loop;
+  timer1Display.innerText = formatTime(timer1);
   timer2Display.innerText = formatTime(timer2);
   timerId = setInterval(countDownTimer1, INTERVAL);
 }
